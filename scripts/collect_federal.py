@@ -188,6 +188,7 @@ def write_csv(rows, details):
         "naics_code", "naics_description",
         "psc_code", "psc_description",
         "pop_state", "pop_city", "pop_country",
+        "number_of_offers", "extent_competed",
         "description",
     ]
     with open(out, "w", newline="") as f:
@@ -217,6 +218,8 @@ def write_csv(rows, details):
                 "pop_state": _g(d, "place_of_performance", "state_code"),
                 "pop_city": _g(d, "place_of_performance", "city_name"),
                 "pop_country": _g(d, "place_of_performance", "country_name"),
+                "number_of_offers": _g(d, "latest_transaction_contract_data", "number_of_offers_received"),
+                "extent_competed": _g(d, "latest_transaction_contract_data", "extent_competed"),
                 "description": (row.get("Description") or _g(d, "description") or "").replace("\n", " ").strip(),
             })
     print(f"Wrote {out}")

@@ -76,9 +76,19 @@ the reference design (research-report layout: anchor nav, KPI tiles, charts with
   classified into segments (Fire/SCBA 73%, Detection 23%); built + deployed the GitHub Pages
   site. Live: https://slogatskiy.github.io/msa-procurement-analysis/
 
-## Backlog / v2 ideas (not yet done)
-- SAM.gov opportunities = tenders MSA *bid on* (not just won) — needs API key.
-- FEMA AFG firefighter grants as an SCBA demand proxy (assistance awards).
+## v2 — SHIPPED (2026-06-29)
+- [x] Federal "competed vs sole-source" + bids-received (FPDS competition fields):
+      $86.5M won in open competition vs $57M sole-source; 73 single-bid (brand-locked).
+- [x] GAO bid-protest record: 2021 MSA win upheld vs 3M Scott (Air Force SCBA);
+      1992 MSA loss to Draeger (Navy) — concrete "competed and sometimes lost" evidence.
+- [x] State & local sweep (Socrata checkbooks): $4.8M direct MSA payments across 19
+      jurisdictions (LA $4.0M, Kansas City, NJ, Delaware, NY State, Chicago, ...).
+- [x] FEMA AFG demand proxy: ~$1.8B FY21–25 national grant volume, explained on-site.
+- [x] Three new site sections + redeploy.
+
+## Backlog / v3 ideas (not yet done)
+- SAM.gov opportunities = solicitations MSA could bid on (needs API key).
+- State/local BID TABULATIONS = the clean "MSA bid and lost" data (per-portal scraping).
 - Federal sub-awards where MSA sells through a distributor (understated today).
-- Best-effort state/local procurement (fragmented; no single API).
 - Competitor overlay (3M/Scott, Honeywell, Teledyne, Draeger) on the same agencies.
+- Pretty labels for remaining small local Socrata domains.

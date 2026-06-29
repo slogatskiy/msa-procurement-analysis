@@ -7,7 +7,9 @@ tenders) over 2021–2026. Built as supporting evidence for an investment thesis
 🔗 **Live site:** https://slogatskiy.github.io/msa-procurement-analysis/
 
 **Headline:** 542 federal prime contract awards · **$143.5M** (2021–2026) · Fire/SCBA 73%,
-Detection 23% · 10 agencies · 26 states.
+Detection 23% · 10 agencies · 26 states. Plus: **$86.5M won in open competition** vs rivals
+· **$4.8M** direct state/local payments across **19 jurisdictions** · **~$1.8B** national FEMA
+AFG demand pool · GAO bid-protest record vs 3M Scott & Draeger.
 
 ## What's here
 
@@ -21,9 +23,19 @@ Detection 23% · 10 agencies · 26 states.
 | `docs/` | Analysis notes & findings |
 
 ## Data sources
-- **USAspending.gov API** — federal prime & sub-award contract data (primary).
-- **SAM.gov** — federal opportunities/solicitations (context, optional).
-- **FEMA Assistance to Firefighters Grants (AFG)** — SCBA demand proxy (context).
+- **USAspending.gov API** — federal prime contract awards + competition fields (primary).
+- **Socrata government open-data checkbooks** — automated sweep of state/county/city
+  vendor-payment portals for payments booked to MSA (state & local footprint).
+- **FEMA Assistance to Firefighters Grants (AFG)**, Assistance Listing 97.044 — SCBA demand proxy.
+- **GAO bid-protest decisions** — hand-verified head-to-head cases vs competitors.
+
+## Collectors
+```bash
+python3 scripts/collect_federal.py    # federal prime awards + competition fields
+python3 scripts/collect_socrata.py    # state/local checkbook sweep (Socrata)
+python3 scripts/collect_afg.py        # FEMA AFG grant volume by year
+python3 scripts/build_analysis.py     # -> site_data.json + site/data.js + findings.md
+```
 
 ## Refresh / backup
 All data is reproducible from the API — no manual entry. To refresh:

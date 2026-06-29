@@ -17,8 +17,9 @@ import os
 import collections
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSV = os.path.join(ROOT, "data", "processed", "awards.csv")
-OUT = os.path.join(ROOT, "data", "processed", "site_data.json")
+PROC = os.path.join(ROOT, "data", "processed")
+CSV = os.path.join(PROC, "awards.csv")
+OUT = os.path.join(PROC, "site_data.json")
 FINDINGS = os.path.join(ROOT, "docs", "findings.md")
 GENERATED = "2026-06-29"  # date refreshed (script env forbids Date.now equivalents)
 
@@ -90,6 +91,61 @@ def agg(rows, key):
     return out
 
 
+EXTENT_LABEL = {
+    "A": "Full & open competition", "B": "Not available for competition",
+    "C": "Not competed (sole source)", "D": "Full & open after exclusion",
+    "E": "Follow-on to competed action", "F": "Competed under SAP",
+    "G": "Not competed under SAP",
+}
+COMPETED_CODES = {"A", "D", "F"}
+
+
+def competition(rows):
+    buckets = collections.Counter()
+    comp_amt = {"competed": 0.0, "not_competed": 0.0}
+    comp_cnt = {"competed": 0, "not_competed": 0}
+    offers = {"1 (sole bid)": 0, "2": 0, "3-4": 0, "5+": 0}
+    have_extent = 0
+    for r in rows:
+        ext = (r.get("extent_competed") or "").strip()
+        if ext:
+            have_extent += 1
+            buckets[ext] += 1
+            key = "competed" if ext in COMPETED_CODES else "not_competed"
+            comp_amt[key] += amt(r)
+            comp_cnt[key] += 1
+        n = (r.get("number_of_offers") or "").strip()
+        if n.isdigit():
+            ni = int(n)
+            if ni <= 1:
+                offers["1 (sole bid)"] += 1
+            elif ni == 2:
+                offers["2"] += 1
+            elif ni <= 4:
+                offers["3-4"] += 1
+            else:
+                offers["5+"] += 1
+    return {
+        "have_extent": have_extent,
+        "extent": [{"code": k, "label": EXTENT_LABEL.get(k, k), "count": v}
+                   for k, v in sorted(buckets.items(), key=lambda x: -x[1])],
+        "competed_vs_not": {
+            "competed": {"amount": round(comp_amt["competed"], 2), "count": comp_cnt["competed"]},
+            "not_competed": {"amount": round(comp_amt["not_competed"], 2), "count": comp_cnt["not_competed"]},
+        },
+        "offers": [{"bucket": k, "count": v} for k, v in offers.items()],
+        "offers_total": sum(offers.values()),
+    }
+
+
+def load_optional(path):
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def main():
     rows = list(csv.DictReader(open(CSV)))
     for r in rows:
@@ -145,6 +201,9 @@ def main():
         "by_recipient": [{"recipient": x["key"], "amount": x["amount"], "count": x["count"]}
                          for x in agg(rows, lambda r: r["recipient_name"])],
         "top_contracts": top_list,
+        "competition": competition(rows),
+        "afg": load_optional(os.path.join(PROC, "afg.json")),
+        "state_local": load_optional(os.path.join(PROC, "state_local.json")),
     }
 
     with open(OUT, "w") as f:

@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "generated": "2026-06-29",
+    "program": "97.044",
+    "program_name": "FEMA Assistance to Firefighters Grants (AFG)",
+    "source": "USAspending.gov API (assistance awards, Assistance Listing 97.044)",
+    "total_fy21_to_present": 1797208840.96
+  },
+  "by_year": [
+    {
+      "fiscal_year": "2021",
+      "amount": 353588608.49
+    },
+    {
+      "fiscal_year": "2022",
+      "amount": 366057223.67
+    },
+    {
+      "fiscal_year": "2023",
+      "amount": 436213345.72
+    },
+    {
+      "fiscal_year": "2024",
+      "amount": 331827273.6
+    },
+    {
+      "fiscal_year": "2025",
+      "amount": 311872519.62
+    },
+    {
+      "fiscal_year": "2026",
+      "amount": -2350130.14
+    }
+  ],
+  "top_recipients": [
+    {
+      "name": "BALTIMORE, CITY OF",
+      "amount": 8364997.58
+    },
+    {
+      "name": "CITY OF MEMPHIS, TENNESSEE",
+      "amount": 8013848.87
+    },
+    {
+      "name": "INTERNATIONAL ASSOCIATION OF FIREFIGHTERS",
+      "amount": 7499852.35
+    },
+    {
+      "name": "NORTH CAROLINA STATE UNIVERSITY",
+      "amount": 7486193.61
+    },
+    {
+      "name": "THE NATIONAL FALLEN FIREFIGHTERS FOUNDATION",
+      "amount": 7307042.56
+    },
+    {
+      "name": "UNIVERSITY OF ARIZONA",
+      "amount": 6000000.0
+    },
+    {
+      "name": "IOWA STATE UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+      "amount": 5967172.61
+    },
+    {
+      "name": "FIRE DEPARTMENT ADMINISTRATORS SERVICE",
+      "amount": 5852340.38
+    },
+    {
+      "name": "CITY OF MIAMI",
+      "amount": 5387970.12
+    },
+    {
+      "name": "NATIONAL VOLUNTEER FIRE COUNCIL, INC.",
+      "amount": 5254684.98
+    },
+    {
+      "name": "CITY & COUNTY SAN FRAN",
+      "amount": 5068616.27
+    },
+    {
+      "name": "VENTURA COUNTY FIRE PROTECTION DISTRICT",
+      "amount": 4904310.55
+    },
+    {
+      "name": "CITY OF PITTSBURGH",
+      "amount": 4826354.65
+    },
+    {
+      "name": "CITY OF PROVIDENCE",
+      "amount": 4818618.71
+    },
+    {
+      "name": "HOUSTON FIRE DEPARTMENT",
+      "amount": 4742984.06
+    }
+  ]
+}

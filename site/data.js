@@ -619,5 +619,382 @@ window.SITE_DATA = {
       "description": "DELIVERY ORDER UNDER MSA CONTRACT 70Z04024D62301B00Y00 FOR CLIN 1071 G1 SELF CONTAINED BREATHING APPARATUS (SCBA) CYLINDERS",
       "url": "https://www.usaspending.gov/award/CONT_AWD_70Z04026F62462B00_7008_70Z04024D62301B00_7008"
     }
-  ]
+  ],
+  "competition": {
+    "have_extent": 542,
+    "extent": [
+      {
+        "code": "A",
+        "label": "Full & open competition",
+        "count": 409
+      },
+      {
+        "code": "G",
+        "label": "Not competed under SAP",
+        "count": 62
+      },
+      {
+        "code": "C",
+        "label": "Not competed (sole source)",
+        "count": 44
+      },
+      {
+        "code": "F",
+        "label": "Competed under SAP",
+        "count": 26
+      },
+      {
+        "code": "D",
+        "label": "Full & open after exclusion",
+        "count": 1
+      }
+    ],
+    "competed_vs_not": {
+      "competed": {
+        "amount": 86460349.57,
+        "count": 436
+      },
+      "not_competed": {
+        "amount": 57012713.13,
+        "count": 106
+      }
+    },
+    "offers": [
+      {
+        "bucket": "1 (sole bid)",
+        "count": 73
+      },
+      {
+        "bucket": "2",
+        "count": 9
+      },
+      {
+        "bucket": "3-4",
+        "count": 48
+      },
+      {
+        "bucket": "5+",
+        "count": 20
+      }
+    ],
+    "offers_total": 150
+  },
+  "afg": {
+    "meta": {
+      "generated": "2026-06-29",
+      "program": "97.044",
+      "program_name": "FEMA Assistance to Firefighters Grants (AFG)",
+      "source": "USAspending.gov API (assistance awards, Assistance Listing 97.044)",
+      "total_fy21_to_present": 1797208840.96
+    },
+    "by_year": [
+      {
+        "fiscal_year": "2021",
+        "amount": 353588608.49
+      },
+      {
+        "fiscal_year": "2022",
+        "amount": 366057223.67
+      },
+      {
+        "fiscal_year": "2023",
+        "amount": 436213345.72
+      },
+      {
+        "fiscal_year": "2024",
+        "amount": 331827273.6
+      },
+      {
+        "fiscal_year": "2025",
+        "amount": 311872519.62
+      },
+      {
+        "fiscal_year": "2026",
+        "amount": -2350130.14
+      }
+    ],
+    "top_recipients": [
+      {
+        "name": "BALTIMORE, CITY OF",
+        "amount": 8364997.58
+      },
+      {
+        "name": "CITY OF MEMPHIS, TENNESSEE",
+        "amount": 8013848.87
+      },
+      {
+        "name": "INTERNATIONAL ASSOCIATION OF FIREFIGHTERS",
+        "amount": 7499852.35
+      },
+      {
+        "name": "NORTH CAROLINA STATE UNIVERSITY",
+        "amount": 7486193.61
+      },
+      {
+        "name": "THE NATIONAL FALLEN FIREFIGHTERS FOUNDATION",
+        "amount": 7307042.56
+      },
+      {
+        "name": "UNIVERSITY OF ARIZONA",
+        "amount": 6000000.0
+      },
+      {
+        "name": "IOWA STATE UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+        "amount": 5967172.61
+      },
+      {
+        "name": "FIRE DEPARTMENT ADMINISTRATORS SERVICE",
+        "amount": 5852340.38
+      },
+      {
+        "name": "CITY OF MIAMI",
+        "amount": 5387970.12
+      },
+      {
+        "name": "NATIONAL VOLUNTEER FIRE COUNCIL, INC.",
+        "amount": 5254684.98
+      },
+      {
+        "name": "CITY & COUNTY SAN FRAN",
+        "amount": 5068616.27
+      },
+      {
+        "name": "VENTURA COUNTY FIRE PROTECTION DISTRICT",
+        "amount": 4904310.55
+      },
+      {
+        "name": "CITY OF PITTSBURGH",
+        "amount": 4826354.65
+      },
+      {
+        "name": "CITY OF PROVIDENCE",
+        "amount": 4818618.71
+      },
+      {
+        "name": "HOUSTON FIRE DEPARTMENT",
+        "amount": 4742984.06
+      }
+    ]
+  },
+  "state_local": {
+    "meta": {
+      "total_payments_usd": 4844588.32,
+      "total_rows": 538,
+      "n_jurisdictions": 19,
+      "source": "Socrata government open-data checkbooks (states, counties, cities)",
+      "match_terms": [
+        "MINE SAFETY",
+        "MSA SAFETY"
+      ]
+    },
+    "by_jurisdiction": [
+      {
+        "jurisdiction": "Los Angeles, CA",
+        "level": "city",
+        "domain": "controllerdata.lacity.org",
+        "amount": 3996832.0,
+        "count": 139,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES CO",
+          "MSA SAFETY SALES, LLC",
+          "Mine Safety Appliances Co"
+        ]
+      },
+      {
+        "jurisdiction": "Kansas City, MO",
+        "level": "city",
+        "domain": "data.kcmo.org",
+        "amount": 267337.94,
+        "count": 176,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES CO",
+          "MSA SAFETY INCORPORATED"
+        ]
+      },
+      {
+        "jurisdiction": "New Jersey",
+        "level": "state",
+        "domain": "data.nj.gov",
+        "amount": 175763.66,
+        "count": 51,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCE COMPANY",
+          "MINE SAFETY APPLIANCES CO",
+          "MSA SAFETY SALES LLC",
+          "MSA SAFETY SALES, LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Delaware",
+        "level": "state",
+        "domain": "data.delaware.gov",
+        "amount": 128239.57,
+        "count": 38,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES CO"
+        ]
+      },
+      {
+        "jurisdiction": "Missouri",
+        "level": "state",
+        "domain": "data.mo.gov",
+        "amount": 56611.07,
+        "count": 32,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES",
+          "MINE SAFETY APPLIANCES CO",
+          "MINE SAFETY APPLIANCES COMPANY"
+        ]
+      },
+      {
+        "jurisdiction": "Mesa, AZ",
+        "level": "city",
+        "domain": "citydata.mesaaz.gov",
+        "amount": 52700.0,
+        "count": 17,
+        "vendor_variants": [
+          "MSA Safety Sales LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Cook County, IL",
+        "level": "county",
+        "domain": "datacatalog.cookcountyil.gov",
+        "amount": 34434.0,
+        "count": 14,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES CO LLC"
+        ]
+      },
+      {
+        "jurisdiction": "New York State",
+        "level": "state",
+        "domain": "data.ny.gov",
+        "amount": 26979.93,
+        "count": 4,
+        "vendor_variants": [
+          "MSA DBA MINE SAFETY APPLIANCES CO LLC",
+          "MSA SAFETY INCORPORATED",
+          "MSA SAFETY SALES"
+        ]
+      },
+      {
+        "jurisdiction": "Colorado",
+        "level": "state",
+        "domain": "data.colorado.gov",
+        "amount": 22500.0,
+        "count": 3,
+        "vendor_variants": [
+          "MSA SAFETY SALES LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Framingham, MA",
+        "level": "city",
+        "domain": "data.framinghamma.gov",
+        "amount": 17533.97,
+        "count": 9,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANC",
+          "MSA SAFETY INC      ",
+          "MSA SAFETY SALES LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Connecticut",
+        "level": "state",
+        "domain": "data.ct.gov",
+        "amount": 14793.56,
+        "count": 16,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES CO",
+          "MSA SAFETY SALES LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Atlanta, GA",
+        "level": "city",
+        "domain": "atlanta.data.socrata.com",
+        "amount": 12074.37,
+        "count": 13,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES COMPANY"
+        ]
+      },
+      {
+        "jurisdiction": "Chicago, IL",
+        "level": "city",
+        "domain": "data.cityofchicago.org",
+        "amount": 11830.0,
+        "count": 2,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCE CO"
+        ]
+      },
+      {
+        "jurisdiction": "performance.ci.janesville.wi.us",
+        "level": "local",
+        "domain": "performance.ci.janesville.wi.us",
+        "amount": 6718.78,
+        "count": 8,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES COMPANY",
+          "MSA SAFETY SALES, LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Vermont",
+        "level": "state",
+        "domain": "data.vermont.gov",
+        "amount": 5898.44,
+        "count": 4,
+        "vendor_variants": [
+          "Mine Safety Appliances Co",
+          "Mine Safety Appliances Co, LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Utah",
+        "level": "state",
+        "domain": "opendata.utah.gov",
+        "amount": 5083.75,
+        "count": 4,
+        "vendor_variants": [
+          "M S A/MINE SAFETY APPLIANCE CO",
+          "MINE SAFETY APPLIANCES CO"
+        ]
+      },
+      {
+        "jurisdiction": "janesville.data.socrata.com",
+        "level": "local",
+        "domain": "janesville.data.socrata.com",
+        "amount": 4390.49,
+        "count": 6,
+        "vendor_variants": [
+          "MINE SAFETY APPLIANCES COMPANY",
+          "MSA SAFETY SALES, LLC"
+        ]
+      },
+      {
+        "jurisdiction": "Oregon",
+        "level": "state",
+        "domain": "data.oregon.gov",
+        "amount": 3231.79,
+        "count": 1,
+        "vendor_variants": [
+          "MSA SAFETY SALES LLC"
+        ]
+      },
+      {
+        "jurisdiction": "opendata.cityofmesquite.com",
+        "level": "local",
+        "domain": "opendata.cityofmesquite.com",
+        "amount": 1635.0,
+        "count": 1,
+        "vendor_variants": [
+          "MSA SAFETY INCORPORATED"
+        ]
+      }
+    ]
+  }
 };

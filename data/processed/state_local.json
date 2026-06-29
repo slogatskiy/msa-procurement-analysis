@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "total_payments_usd": 4844588.32,
+    "total_rows": 538,
+    "n_jurisdictions": 19,
+    "source": "Socrata government open-data checkbooks (states, counties, cities)",
+    "match_terms": [
+      "MINE SAFETY",
+      "MSA SAFETY"
+    ]
+  },
+  "by_jurisdiction": [
+    {
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "domain": "controllerdata.lacity.org",
+      "amount": 3996832.0,
+      "count": 139,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES CO",
+        "MSA SAFETY SALES, LLC",
+        "Mine Safety Appliances Co"
+      ]
+    },
+    {
+      "jurisdiction": "Kansas City, MO",
+      "level": "city",
+      "domain": "data.kcmo.org",
+      "amount": 267337.94,
+      "count": 176,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES CO",
+        "MSA SAFETY INCORPORATED"
+      ]
+    },
+    {
+      "jurisdiction": "New Jersey",
+      "level": "state",
+      "domain": "data.nj.gov",
+      "amount": 175763.66,
+      "count": 51,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCE COMPANY",
+        "MINE SAFETY APPLIANCES CO",
+        "MSA SAFETY SALES LLC",
+        "MSA SAFETY SALES, LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Delaware",
+      "level": "state",
+      "domain": "data.delaware.gov",
+      "amount": 128239.57,
+      "count": 38,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES CO"
+      ]
+    },
+    {
+      "jurisdiction": "Missouri",
+      "level": "state",
+      "domain": "data.mo.gov",
+      "amount": 56611.07,
+      "count": 32,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES",
+        "MINE SAFETY APPLIANCES CO",
+        "MINE SAFETY APPLIANCES COMPANY"
+      ]
+    },
+    {
+      "jurisdiction": "Mesa, AZ",
+      "level": "city",
+      "domain": "citydata.mesaaz.gov",
+      "amount": 52700.0,
+      "count": 17,
+      "vendor_variants": [
+        "MSA Safety Sales LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Cook County, IL",
+      "level": "county",
+      "domain": "datacatalog.cookcountyil.gov",
+      "amount": 34434.0,
+      "count": 14,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES CO LLC"
+      ]
+    },
+    {
+      "jurisdiction": "New York State",
+      "level": "state",
+      "domain": "data.ny.gov",
+      "amount": 26979.93,
+      "count": 4,
+      "vendor_variants": [
+        "MSA DBA MINE SAFETY APPLIANCES CO LLC",
+        "MSA SAFETY INCORPORATED",
+        "MSA SAFETY SALES"
+      ]
+    },
+    {
+      "jurisdiction": "Colorado",
+      "level": "state",
+      "domain": "data.colorado.gov",
+      "amount": 22500.0,
+      "count": 3,
+      "vendor_variants": [
+        "MSA SAFETY SALES LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Framingham, MA",
+      "level": "city",
+      "domain": "data.framinghamma.gov",
+      "amount": 17533.97,
+      "count": 9,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANC",
+        "MSA SAFETY INC      ",
+        "MSA SAFETY SALES LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Connecticut",
+      "level": "state",
+      "domain": "data.ct.gov",
+      "amount": 14793.56,
+      "count": 16,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES CO",
+        "MSA SAFETY SALES LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Atlanta, GA",
+      "level": "city",
+      "domain": "atlanta.data.socrata.com",
+      "amount": 12074.37,
+      "count": 13,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES COMPANY"
+      ]
+    },
+    {
+      "jurisdiction": "Chicago, IL",
+      "level": "city",
+      "domain": "data.cityofchicago.org",
+      "amount": 11830.0,
+      "count": 2,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCE CO"
+      ]
+    },
+    {
+      "jurisdiction": "performance.ci.janesville.wi.us",
+      "level": "local",
+      "domain": "performance.ci.janesville.wi.us",
+      "amount": 6718.78,
+      "count": 8,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES COMPANY",
+        "MSA SAFETY SALES, LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Vermont",
+      "level": "state",
+      "domain": "data.vermont.gov",
+      "amount": 5898.44,
+      "count": 4,
+      "vendor_variants": [
+        "Mine Safety Appliances Co",
+        "Mine Safety Appliances Co, LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Utah",
+      "level": "state",
+      "domain": "opendata.utah.gov",
+      "amount": 5083.75,
+      "count": 4,
+      "vendor_variants": [
+        "M S A/MINE SAFETY APPLIANCE CO",
+        "MINE SAFETY APPLIANCES CO"
+      ]
+    },
+    {
+      "jurisdiction": "janesville.data.socrata.com",
+      "level": "local",
+      "domain": "janesville.data.socrata.com",
+      "amount": 4390.49,
+      "count": 6,
+      "vendor_variants": [
+        "MINE SAFETY APPLIANCES COMPANY",
+        "MSA SAFETY SALES, LLC"
+      ]
+    },
+    {
+      "jurisdiction": "Oregon",
+      "level": "state",
+      "domain": "data.oregon.gov",
+      "amount": 3231.79,
+      "count": 1,
+      "vendor_variants": [
+        "MSA SAFETY SALES LLC"
+      ]
+    },
+    {
+      "jurisdiction": "opendata.cityofmesquite.com",
+      "level": "local",
+      "domain": "opendata.cityofmesquite.com",
+      "amount": 1635.0,
+      "count": 1,
+      "vendor_variants": [
+        "MSA SAFETY INCORPORATED"
+      ]
+    }
+  ]
+}
