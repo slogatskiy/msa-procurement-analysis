@@ -620,6 +620,129 @@ window.SITE_DATA = {
       "url": "https://www.usaspending.gov/award/CONT_AWD_70Z04026F62462B00_7008_70Z04024D62301B00_7008"
     }
   ],
+  "by_segment_year": {
+    "years": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "series": [
+      {
+        "key": "Fire Services (SCBA)",
+        "values": [
+          5243703.43,
+          1489201.96,
+          34405890.68,
+          54930530.37,
+          6341708.31,
+          841528.2
+        ]
+      },
+      {
+        "key": "Detection",
+        "values": [
+          338070.14,
+          7460773.2,
+          9917767.71,
+          8626629.15,
+          5722155.22,
+          145332.28
+        ]
+      },
+      {
+        "key": "Industrial PPE",
+        "values": [
+          81181.2,
+          177706.2,
+          52706.46,
+          2082.5,
+          1249.5,
+          0.0
+        ]
+      },
+      {
+        "key": "Other",
+        "values": [
+          39573.85,
+          664027.38,
+          412659.71,
+          3394372.76,
+          210481.4,
+          25000.0
+        ]
+      }
+    ]
+  },
+  "by_agency_year": {
+    "years": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "series": [
+      {
+        "key": "Department of Defense",
+        "values": [
+          468780.75,
+          8595246.93,
+          43524221.95,
+          40192426.45,
+          11382218.73,
+          46607.5
+        ]
+      },
+      {
+        "key": "Department of Homeland Security",
+        "values": [
+          917409.23,
+          894542.45,
+          1257077.61,
+          23231521.63,
+          824627.84,
+          866528.2
+        ]
+      },
+      {
+        "key": "Department of Health and Human Services",
+        "values": [
+          4065890.0,
+          0.0,
+          0.0,
+          14824.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "key": "Department of Justice",
+        "values": [
+          0.0,
+          10250.0,
+          7725.0,
+          2810488.7,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "key": "Other",
+        "values": [
+          250448.64,
+          291669.36,
+          0.0,
+          704354.0,
+          68747.86,
+          98724.78
+        ]
+      }
+    ]
+  },
   "competition": {
     "have_extent": 542,
     "extent": [
@@ -994,6 +1117,143 @@ window.SITE_DATA = {
         "vendor_variants": [
           "MSA SAFETY INCORPORATED"
         ]
+      }
+    ],
+    "by_year": [
+      {
+        "year": "2000",
+        "amount": 975.81,
+        "count": 3
+      },
+      {
+        "year": "2001",
+        "amount": 190.0,
+        "count": 2
+      },
+      {
+        "year": "2002",
+        "amount": 5979.08,
+        "count": 2
+      },
+      {
+        "year": "2003",
+        "amount": 20066.08,
+        "count": 6
+      },
+      {
+        "year": "2004",
+        "amount": 23726.49,
+        "count": 8
+      },
+      {
+        "year": "2005",
+        "amount": 21273.6,
+        "count": 4
+      },
+      {
+        "year": "2006",
+        "amount": 13975.3,
+        "count": 4
+      },
+      {
+        "year": "2007",
+        "amount": 12511.12,
+        "count": 5
+      },
+      {
+        "year": "2008",
+        "amount": 23109.2,
+        "count": 4
+      },
+      {
+        "year": "2009",
+        "amount": 10581.69,
+        "count": 6
+      },
+      {
+        "year": "2010",
+        "amount": 104458.54,
+        "count": 14
+      },
+      {
+        "year": "2011",
+        "amount": 33530.79,
+        "count": 30
+      },
+      {
+        "year": "2012",
+        "amount": 1613765.05,
+        "count": 30
+      },
+      {
+        "year": "2013",
+        "amount": 1312324.23,
+        "count": 34
+      },
+      {
+        "year": "2014",
+        "amount": 1029775.67,
+        "count": 21
+      },
+      {
+        "year": "2015",
+        "amount": 21773.65,
+        "count": 12
+      },
+      {
+        "year": "2016",
+        "amount": 62447.93,
+        "count": 49
+      },
+      {
+        "year": "2017",
+        "amount": 95405.56,
+        "count": 38
+      },
+      {
+        "year": "2018",
+        "amount": 80942.9,
+        "count": 42
+      },
+      {
+        "year": "2019",
+        "amount": 87512.6,
+        "count": 50
+      },
+      {
+        "year": "2020",
+        "amount": 34265.08,
+        "count": 51
+      },
+      {
+        "year": "2021",
+        "amount": 51427.34,
+        "count": 40
+      },
+      {
+        "year": "2022",
+        "amount": 16565.91,
+        "count": 17
+      },
+      {
+        "year": "2023",
+        "amount": 42634.27,
+        "count": 23
+      },
+      {
+        "year": "2024",
+        "amount": 39502.56,
+        "count": 13
+      },
+      {
+        "year": "2025",
+        "amount": 33258.68,
+        "count": 15
+      },
+      {
+        "year": "2026",
+        "amount": 41610.44,
+        "count": 10
       }
     ]
   }

@@ -308,6 +308,18 @@ def write_outputs(hits):
     } for k, v in agg.items()]
     by_juris.sort(key=lambda x: x["amount"], reverse=True)
 
+    # by year (year parsed from each row's date field)
+    yr_amt = collections.defaultdict(float)
+    yr_cnt = collections.Counter()
+    for h in hits:
+        d = str(h.get("date") or "").strip()
+        y = d[:4]
+        if y.isdigit() and 2000 <= int(y) <= 2026:
+            yr_amt[y] += h["amount"]
+            yr_cnt[y] += 1
+    by_year = [{"year": y, "amount": round(yr_amt[y], 2), "count": yr_cnt[y]}
+               for y in sorted(yr_amt)]
+
     total = sum(h["amount"] for h in hits)
     out = {
         "meta": {
@@ -318,6 +330,7 @@ def write_outputs(hits):
             "match_terms": MATCH,
         },
         "by_jurisdiction": by_juris,
+        "by_year": by_year,
     }
     with open(os.path.join(PROC, "state_local.json"), "w") as f:
         json.dump(out, f, indent=2)

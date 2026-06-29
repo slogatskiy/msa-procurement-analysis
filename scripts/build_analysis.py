@@ -138,6 +138,27 @@ def competition(rows):
     }
 
 
+def stacked_by_year(rows, key_fn, top_keys, min_year=2021):
+    """Return {years:[...], series:[{key, values:[...]}]} for a stacked time series."""
+    years = sorted({(r["start_date"] or "")[:4] for r in rows
+                    if (r["start_date"] or "")[:4] >= str(min_year)})
+    mat = {k: {y: 0.0 for y in years} for k in top_keys}
+    other = {y: 0.0 for y in years}
+    for r in rows:
+        y = (r["start_date"] or "")[:4]
+        if y not in years:
+            continue
+        k = key_fn(r)
+        if k in mat:
+            mat[k][y] += amt(r)
+        else:
+            other[y] += amt(r)
+    series = [{"key": k, "values": [round(mat[k][y], 2) for y in years]} for k in top_keys]
+    if any(v > 0 for v in other.values()):
+        series.append({"key": "Other", "values": [round(other[y], 2) for y in years]})
+    return {"years": years, "series": series}
+
+
 def load_optional(path):
     try:
         with open(path) as f:
@@ -201,6 +222,12 @@ def main():
         "by_recipient": [{"recipient": x["key"], "amount": x["amount"], "count": x["count"]}
                          for x in agg(rows, lambda r: r["recipient_name"])],
         "top_contracts": top_list,
+        "by_segment_year": stacked_by_year(
+            rows, lambda r: r["segment"],
+            [FIRE, DETECT, INDUS]),
+        "by_agency_year": stacked_by_year(
+            rows, lambda r: r["awarding_agency"],
+            [a["key"] for a in agg(rows, lambda r: r["awarding_agency"])[:4]]),
         "competition": competition(rows),
         "afg": load_optional(os.path.join(PROC, "afg.json")),
         "state_local": load_optional(os.path.join(PROC, "state_local.json")),

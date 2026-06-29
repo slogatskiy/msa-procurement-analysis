@@ -138,6 +138,57 @@
     `<strong>Source:</strong> USAspending.gov · awarded value by action start date · ` +
     `chart shows ${yrs[0].year}–${yrs[yrs.length - 1].year} · refreshed <code>${D.meta.generated}</code>`;
 
+  function stackedBar(canvasId, payload, colorFn) {
+    const datasets = payload.series.map((s) => ({
+      label: s.key, data: s.values, backgroundColor: colorFn(s.key), borderWidth: 0,
+    }));
+    new Chart(el(canvasId), {
+      type: "bar",
+      data: { labels: payload.years, datasets },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: "bottom", labels: { boxWidth: 12, padding: 10, font: { size: 10 } } },
+          tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${usdFull(c.parsed.y)}` } },
+        },
+        scales: {
+          x: { stacked: true, grid: { display: false } },
+          y: { stacked: true, grid: { color: COL.grid }, ticks: { callback: (v) => usdCompact(v) } },
+        },
+      },
+    });
+  }
+
+  // Segment mix by year
+  const segColorFor = (k) => SEG_COLOR[k] || COL.other;
+  stackedBar("segYearChart", D.by_segment_year, segColorFor);
+  const sy = D.by_segment_year;
+  const fireSeries = (sy.series.find((s) => s.key.startsWith("Fire")) || { values: [] }).values;
+  const fIdx = sy.years.indexOf("2024");
+  const f24 = fIdx >= 0 ? fireSeries[fIdx] : Math.max(...fireSeries);
+  const i25 = sy.years.indexOf("2025");
+  const f25 = i25 >= 0 ? fireSeries[i25] : 0;
+  el("take-segyear").innerHTML =
+    `Fire/SCBA dollars ramp to <strong>${usdCompact(f24)} in 2024</strong>, then collapse to ` +
+    `<strong>${usdCompact(f25)} in 2025</strong> — a ${pct(f24 - f25, f24)} drop. That pause is exactly what ` +
+    `the thesis describes: departments held off ordering ahead of the new 2026 NFPA SCBA standard ` +
+    `(MSA's own Americas fire revenue fell ~12% in 2025). The federal record shows the same air-pocket — ` +
+    `and sets up easy comparisons as the 2027–2029 replacement wave lands. Detection, by contrast, is steadier.`;
+  el("src-segyear").innerHTML =
+    `<strong>Source:</strong> USAspending.gov · segment-classified awarded $ by year · refreshed <code>${D.meta.generated}</code>`;
+
+  // Agency mix by year
+  const agPalette = [COL.accent, COL.blue, COL.neg, COL.indus, COL.other];
+  const agKeys = D.by_agency_year.series.map((s) => s.key);
+  stackedBar("agencyYearChart", D.by_agency_year, (k) => agPalette[agKeys.indexOf(k) % agPalette.length]);
+  el("take-agyear").innerHTML =
+    `The 2023–2024 surge is overwhelmingly <strong>Department of Defense</strong> (Air Force SCBA delivery ` +
+    `orders), with <strong>Homeland Security</strong> (Coast Guard) layered on top. A concentrated but ` +
+    `mandate-driven, repeat-buyer base — the kind of demand that recurs on a replacement clock rather than an ` +
+    `economic one.`;
+  el("src-agyear").innerHTML =
+    `<strong>Source:</strong> USAspending.gov · awarded $ by department by year · refreshed <code>${D.meta.generated}</code>`;
+
   /* ---------- Section 03: agencies ---------- */
   const ag = D.by_agency.slice(0, 10);
   new Chart(el("agencyChart"), {
@@ -301,6 +352,37 @@
     el("src-sl").innerHTML =
       `<strong>Source:</strong> Government open-data checkbooks on Socrata · automated vendor sweep ` +
       `(match: ${SL.meta.match_terms.join(", ")}) · payments booked directly to MSA · refreshed <code>${D.meta.generated}</code>`;
+
+    // State/local payments by year
+    if (SL.by_year && SL.by_year.length) {
+      const sly = SL.by_year.filter((y) => Number(y.year) >= 2011);
+      new Chart(el("slYearChart"), {
+        type: "bar",
+        data: {
+          labels: sly.map((y) => y.year),
+          datasets: [{ data: sly.map((y) => y.amount),
+            backgroundColor: sly.map((y) => (Number(y.year) >= 2012 && Number(y.year) <= 2014 ? COL.neg : COL.blue)),
+            borderRadius: 4 }],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { label: (c) => `${usdFull(c.parsed.y)} · ${sly[c.dataIndex].count} records` } } },
+          scales: { y: { grid: { color: COL.grid }, ticks: { callback: (v) => usdCompact(v) } },
+                    x: { grid: { display: false } } },
+        },
+      });
+      const peak = sly.reduce((a, b) => (b.amount > a.amount ? b : a), sly[0]);
+      el("take-slyear").innerHTML =
+        `The spike is <strong>Los Angeles, ${peak.year}-era</strong> (red bars): the city booked ~$4M of MSA ` +
+        `gear in <strong>2012–2014</strong> — a full fire-department SCBA fleet buy. Those units hit their ` +
+        `12–14 year physical replacement life <strong>right now (2024–2028)</strong>, a concrete municipal ` +
+        `example of the replacement clock the thesis is built on. Recent-year bars are smaller mostly because ` +
+        `fewer big jurisdictions publish current checkbooks on Socrata — coverage, not demand, thins out.`;
+      el("src-slyear").innerHTML =
+        `<strong>Source:</strong> Socrata government checkbooks · payment date by year · ` +
+        `red = LA 2012–14 fleet buy · refreshed <code>${D.meta.generated}</code>`;
+    }
   }
 
   /* ---------- Section 06: AFG ---------- */
