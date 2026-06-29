@@ -72,3 +72,13 @@ the reference design (research-report layout: anchor nav, KPI tiles, charts with
 ## Status log
 - 2026-06-29: Project kickoff. Validated USAspending API returns rich MSA federal
   contract data (DoD/Air Force $28.5M, DHS/Coast Guard $15.3M, HHS, etc.). Roadmap created.
+- 2026-06-29: **v1 SHIPPED.** Phases 0–4 complete. Collected 542 prime awards ($143.5M);
+  classified into segments (Fire/SCBA 73%, Detection 23%); built + deployed the GitHub Pages
+  site. Live: https://slogatskiy.github.io/msa-procurement-analysis/
+
+## Backlog / v2 ideas (not yet done)
+- SAM.gov opportunities = tenders MSA *bid on* (not just won) — needs API key.
+- FEMA AFG firefighter grants as an SCBA demand proxy (assistance awards).
+- Federal sub-awards where MSA sells through a distributor (understated today).
+- Best-effort state/local procurement (fragmented; no single API).
+- Competitor overlay (3M/Scott, Honeywell, Teledyne, Draeger) on the same agencies.

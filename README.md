@@ -4,7 +4,10 @@ Research project analyzing **MSA Safety Incorporated** (NYSE: MSA, formerly Mine
 Appliances Co.) participation and wins in U.S. public procurement (federal contract
 tenders) over 2021–2026. Built as supporting evidence for an investment thesis.
 
-🔗 **Live site:** _(GitHub Pages link added after publish)_
+🔗 **Live site:** https://slogatskiy.github.io/msa-procurement-analysis/
+
+**Headline:** 542 federal prime contract awards · **$143.5M** (2021–2026) · Fire/SCBA 73%,
+Detection 23% · 10 agencies · 26 states.
 
 ## What's here
 
