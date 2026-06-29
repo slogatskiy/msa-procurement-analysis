@@ -17,3 +17,6 @@ scratch/
 
 # Claude local settings
 .claude/
+
+# Local drafts (private, not published)
+drafts/

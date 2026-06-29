@@ -75,6 +75,14 @@ the reference design (research-report layout: anchor nav, KPI tiles, charts with
 - 2026-06-29: **v1 SHIPPED.** Phases 0–4 complete. Collected 542 prime awards ($143.5M);
   classified into segments (Fire/SCBA 73%, Detection 23%); built + deployed the GitHub Pages
   site. Live: https://slogatskiy.github.io/msa-procurement-analysis/
+- 2026-06-29: **v2 + v2.1 SHIPPED.** Added competition/GAO, state&local (Socrata), FEMA AFG,
+  and trend-over-time charts. All committed, pushed, deployed (Pages green). Session paused.
+  **Next session:** decide on Slack share (draft saved in gitignored `drafts/`); pick from v3 backlog.
+
+## v2.1 — SHIPPED (2026-06-29) — trend-over-time charts
+- [x] Segment mix by year (stacked): Fire/SCBA $55M (2024) → $6M (2025) pause, visible in raw data.
+- [x] Awarding-agency mix by year (stacked): DoD/Air Force drove the 2023–24 surge.
+- [x] State & local payments by year: LA 2012–14 ~$4M SCBA fleet buy → replacement window 2024–28.
 
 ## v2 — SHIPPED (2026-06-29)
 - [x] Federal "competed vs sole-source" + bids-received (FPDS competition fields):
