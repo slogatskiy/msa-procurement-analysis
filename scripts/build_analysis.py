@@ -150,6 +150,15 @@ def main():
     with open(OUT, "w") as f:
         json.dump(data, f, indent=2)
     print(f"Wrote {OUT}")
+
+    site_js = os.path.join(ROOT, "site", "data.js")
+    os.makedirs(os.path.dirname(site_js), exist_ok=True)
+    with open(site_js, "w") as f:
+        f.write("window.SITE_DATA = ")
+        json.dump(data, f, indent=2)
+        f.write(";\n")
+    print(f"Wrote {site_js}")
+
     write_findings(data)
     print_summary(data)
 
