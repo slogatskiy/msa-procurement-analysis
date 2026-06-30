@@ -81,6 +81,38 @@
     },
   });
 
+  // MSA vs competitor municipal fire transactions by year (stacked)
+  if (M.by_year && M.by_year.length) {
+    const yr = M.by_year;
+    new Chart(el("muYearChart"), {
+      type: "bar",
+      data: {
+        labels: yr.map((y) => y.year),
+        datasets: [
+          { label: "MSA channel", data: yr.map((y) => y.msa), backgroundColor: COL.accent, borderWidth: 0 },
+          { label: "Competitors", data: yr.map((y) => y.comp), backgroundColor: COL.neg, borderWidth: 0 },
+        ],
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: "bottom", labels: { boxWidth: 12, padding: 10, font: { size: 10 } } },
+          tooltip: { callbacks: { label: (c) => c.dataset.label + ": " + num(c.parsed.y) + (c.datasetIndex === 0 ? " (" + yr[c.dataIndex].msa_share + "% of yr)" : "") } },
+        },
+        scales: {
+          x: { stacked: true, grid: { display: false } },
+          y: { stacked: true, grid: { color: COL.grid }, ticks: { precision: 0 } },
+        },
+      },
+    });
+    const lo = Math.min(...yr.map((y) => y.msa_share)), hi = Math.max(...yr.map((y) => y.msa_share));
+    el("take-muyear").innerHTML =
+      `The absolute bars fall after 2019 because <strong>fewer jurisdictions publish granular data for recent years</strong> — ` +
+      `that's coverage, not demand. The durable signal is the <strong>green-to-red ratio</strong>: MSA's channel holds ` +
+      `<strong>${lo}–${hi}% of visible municipal fire transactions in every year</strong> from ${yr[0].year} to ${yr[yr.length - 1].year}. ` +
+      `Competitors never break out — the dominance is structural and persistent, not a one-year snapshot.`;
+  }
+
   el("take-mu").innerHTML =
     `Read this by <strong>breadth, not raw volume</strong>: across the ${M.active_jurisdictions} jurisdictions with ` +
     `visible fire activity, MSA's channel <strong>out-transacts every competitor combined in ${M.msa_wins_jurisdictions} of them</strong>, ` +

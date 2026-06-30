@@ -351,6 +351,74 @@ window.SITE_DATA = {
         "comp": 1
       }
     ],
+    "by_year": [
+      {
+        "year": "2016",
+        "msa": 1558,
+        "comp": 81,
+        "msa_share": 95
+      },
+      {
+        "year": "2017",
+        "msa": 2352,
+        "comp": 94,
+        "msa_share": 96
+      },
+      {
+        "year": "2018",
+        "msa": 2828,
+        "comp": 51,
+        "msa_share": 98
+      },
+      {
+        "year": "2019",
+        "msa": 2538,
+        "comp": 61,
+        "msa_share": 98
+      },
+      {
+        "year": "2020",
+        "msa": 778,
+        "comp": 49,
+        "msa_share": 94
+      },
+      {
+        "year": "2021",
+        "msa": 574,
+        "comp": 110,
+        "msa_share": 84
+      },
+      {
+        "year": "2022",
+        "msa": 585,
+        "comp": 97,
+        "msa_share": 86
+      },
+      {
+        "year": "2023",
+        "msa": 710,
+        "comp": 58,
+        "msa_share": 92
+      },
+      {
+        "year": "2024",
+        "msa": 507,
+        "comp": 33,
+        "msa_share": 94
+      },
+      {
+        "year": "2025",
+        "msa": 717,
+        "comp": 55,
+        "msa_share": 93
+      },
+      {
+        "year": "2026",
+        "msa": 243,
+        "comp": 23,
+        "msa_share": 91
+      }
+    ],
     "msa_direct_floor_usd": 5118457.5,
     "total_rows": 20714,
     "source": "Municipal/state open-data (Socrata) award & PO datasets"

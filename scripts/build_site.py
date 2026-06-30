@@ -14,6 +14,7 @@ Detection and other non-fire segments are EXCLUDED per PM direction.
 Writes: data/processed/site_data.json  and  site/data.js
 """
 import os
+import re
 import csv
 import json
 import collections
@@ -107,6 +108,8 @@ def build_municipal():
     dealer_cnt = collections.Counter()
     dealer_juris = collections.defaultdict(set)
     juris = collections.defaultdict(lambda: {"level": "local", "msa": 0, "comp": 0})
+    year_msa = collections.Counter()
+    year_comp = collections.Counter()
     direct_floor = 0.0
     total_rows = 0
 
@@ -123,6 +126,13 @@ def build_municipal():
         j = juris[label]
         j["level"] = level
         is_msa = cls in ("MSA direct", "MSA product spec'd", "Via MSA fire dealer")
+        ym = re.search(r"(19|20)\d{2}", str(h.get("date") or ""))
+        yr = ym.group(0) if ym else None
+        if yr and 2016 <= int(yr) <= 2026:
+            if is_msa:
+                year_msa[yr] += 1
+            elif cls == "Competitor":
+                year_comp[yr] += 1
         if is_msa:
             j["msa"] += 1
             d = canon_dealer(h.get("vendor")) or ("MSA (direct / spec'd)" if cls != "Via MSA fire dealer" else None)
@@ -165,6 +175,9 @@ def build_municipal():
         "by_class": [{"class": k, "count": v} for k, v in by_class.most_common()],
         "top_dealers": top_dealers,
         "by_jurisdiction": by_juris,
+        "by_year": [{"year": y, "msa": year_msa[y], "comp": year_comp[y],
+                     "msa_share": round(100 * year_msa[y] / (year_msa[y] + year_comp[y])) if (year_msa[y] + year_comp[y]) else 0}
+                    for y in sorted(set(year_msa) | set(year_comp))],
         "msa_direct_floor_usd": round(direct_floor, 2),
         "total_rows": total_rows,
         "source": "Municipal/state open-data (Socrata) award & PO datasets",
