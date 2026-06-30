@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MSA Safety (MSA) — U.S. Federal Procurement Tracker</title>
+<title>MSA Safety (MSA) — Fire-Segment Public Procurement Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -78,6 +78,8 @@
   .chart-take p { font-size: 12.5px; color: var(--text-soft); line-height: 1.6; margin-bottom: 6px; }
   .chart-take p:last-child { margin-bottom: 0; }
   .chart-take strong { color: var(--text); font-weight: 700; }
+  .chart-take.warn { background: linear-gradient(180deg, #fdf6f4, #f9ece8); border-color: #e6c3b8; border-left-color: var(--neg); }
+  .chart-take.warn .take-eyebrow { color: var(--neg); }
 
   .source-caption { font-size: 10.5px; color: var(--muted); line-height: 1.55;
                      margin-top: 12px; padding-top: 10px;
@@ -95,11 +97,12 @@
   .split-stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
                 padding: 18px 22px; box-shadow: 0 1px 3px rgba(45,47,37,0.04); }
   .split-stat.win { border-left: 5px solid var(--accent); }
-  .split-stat.sole { border-left: 5px solid var(--accent2); }
+  .split-stat.sole { border-left: 5px solid var(--neg); }
   .split-stat .ss-label { font-size: 11px; color: var(--muted); text-transform: uppercase;
                           letter-spacing: 0.8px; font-weight: 700; margin-bottom: 8px; }
   .split-stat .ss-val { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
   .split-stat.win .ss-val { color: var(--accent); }
+  .split-stat.sole .ss-val { color: var(--neg); }
   .split-stat .ss-sub { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
 
   .table-card { background: var(--surface); border: 1px solid var(--border);
@@ -117,10 +120,13 @@
 
   .badge { display: inline-block; padding: 3px 8px; border-radius: 999px;
             font-size: 10px; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap; }
-  .seg-fire { background: #f8e2dc; color: #b34738; }
-  .seg-detect { background: #dce8f0; color: #2f5670; }
-  .seg-indus { background: #fdefc9; color: #8a6b10; }
-  .seg-other { background: #eee7d6; color: #8b8271; }
+  .b-direct { background: #d8ebdc; color: #2a5a30; }
+  .b-indirect { background: #fdefc9; color: #8a6b10; }
+  .b-state { background: #dce8f0; color: #2f5670; }
+  .b-city { background: #f8e2dc; color: #b34738; }
+  .b-county { background: #eee7d6; color: #8b8271; }
+  .b-blocked { background: #f8e2dc; color: #b34738; }
+  .b-ok { background: #d8ebdc; color: #2a5a30; }
 
   footer { border-top: 1px solid var(--border); margin-top: 50px; padding: 24px 0 0;
            font-size: 11.5px; color: var(--muted); line-height: 1.7; }
@@ -130,17 +136,14 @@
 </head>
 <body>
 <div class="topbar">
-  <h1><span>MSA</span> Safety · U.S. Federal Procurement</h1>
+  <h1><span>MSA</span> Safety · Fire-Segment Public Procurement</h1>
   <nav class="topbar-nav">
     <a class="nav-btn" href="#overview">Overview</a>
-    <a class="nav-btn" href="#segments">Segments</a>
-    <a class="nav-btn" href="#trend">Trend</a>
-    <a class="nav-btn" href="#agencies">Agencies</a>
-    <a class="nav-btn" href="#competition">Competition</a>
-    <a class="nav-btn" href="#statelocal">State &amp; Local</a>
+    <a class="nav-btn" href="#municipal">Municipal</a>
+    <a class="nav-btn" href="#coop">Co-op</a>
+    <a class="nav-btn" href="#platforms">Platforms</a>
+    <a class="nav-btn" href="#federal">Federal</a>
     <a class="nav-btn" href="#afg">AFG Demand</a>
-    <a class="nav-btn" href="#geography">Geography</a>
-    <a class="nav-btn" href="#contracts">Top Contracts</a>
     <a class="nav-btn" href="#method">Method</a>
   </nav>
 </div>
@@ -150,216 +153,184 @@
   <!-- 00 OVERVIEW -->
   <div class="section-header" id="overview">
     <div class="section-num">SECTION 00</div>
-    <div class="section-title">Overview — MSA in U.S. public procurement</div>
+    <div class="section-title">MSA's fire franchise lives in municipal procurement</div>
     <div class="section-subtitle" id="sub-window"></div>
   </div>
-
   <div class="lede">
-    <div class="lede-eyebrow">WHAT THIS TRACKS</div>
-    <p><strong>MSA Safety Incorporated</strong> (NYSE: MSA, formerly Mine Safety Appliances) sells
-    life-safety equipment that is largely <strong>required by regulators</strong> and bought by
-    government end-users — fire departments, the military, and federal agencies. This page tracks
-    every <strong>federal prime contract award</strong> to MSA's entities with contract activity in
-    the window, sourced directly from the U.S. government's spending database.</p>
-    <p>It exists to put hard, public numbers behind the thesis claims: a fire-services franchise
-    riding an <strong>SCBA replacement cycle</strong>, a growing <strong>detection</strong> book,
-    and recurring, non-cyclical government demand.</p>
+    <div class="lede-eyebrow">WHAT THIS TRACKS — AND WHY IT'S MUNICIPAL</div>
+    <p><strong>MSA Safety</strong>'s fire segment — self-contained breathing apparatus (SCBA), Globe
+    turnout gear, Cairns helmets — is sold overwhelmingly to <strong>cities, counties and fire
+    districts</strong>, not the federal government. So this page is rebuilt around the municipal
+    channel: where fire tenders live, who supplies them, and how dominant MSA's channel is versus
+    competitors. (Detection is out of scope here.)</p>
+    <p>Federal contracts — the easy-to-measure slice — are kept as <strong>supporting evidence</strong>
+    further down, where the SCBA replacement cycle is still cleanly visible.</p>
   </div>
-
   <div class="hero-row" id="hero"></div>
 
-  <!-- 01 SEGMENTS -->
-  <div class="section-header" id="segments">
+  <!-- 01 MUNICIPAL -->
+  <div class="section-header" id="municipal">
     <div class="section-num">SECTION 01</div>
-    <div class="section-title">Where the money is — by product segment</div>
-    <div class="section-subtitle">Each award mapped to an MSA reporting segment via product (PSC), industry (NAICS) &amp; description keywords.</div>
+    <div class="section-title">Municipal channel dominance</div>
+    <div class="section-subtitle">Fire-equipment transactions in public city/county/state open-data,
+      attributed to MSA + its authorized dealers vs. competitors. Counts (robust), not dollars.</div>
   </div>
-
+  <div class="split-row">
+    <div class="split-stat win">
+      <div class="ss-label">MSA channel — fire transactions</div>
+      <div class="ss-val" id="mu-msa"></div>
+      <div class="ss-sub" id="mu-msa-sub"></div>
+    </div>
+    <div class="split-stat sole">
+      <div class="ss-label">Competitors — fire transactions</div>
+      <div class="ss-val" id="mu-comp"></div>
+      <div class="ss-sub" id="mu-comp-sub"></div>
+    </div>
+  </div>
   <div class="dual-col">
     <div class="chart-card">
-      <h3>Federal dollars by segment</h3>
-      <div class="chart-subtitle">Share of total awarded value</div>
-      <div class="chart-wrap"><canvas id="segDoughnut"></canvas></div>
+      <h3>Fire transactions by attribution</h3>
+      <div class="chart-subtitle">MSA dealers, MSA direct/spec'd, competitors, unattributed</div>
+      <div class="chart-wrap"><canvas id="muClassChart"></canvas></div>
     </div>
     <div class="chart-card">
-      <h3>Award count by segment</h3>
-      <div class="chart-subtitle">Number of distinct prime awards</div>
-      <div class="chart-wrap"><canvas id="segBar"></canvas></div>
+      <h3>Top MSA fire dealers by transaction count</h3>
+      <div class="chart-subtitle">The authorized distributors that carry MSA SCBA/turnout</div>
+      <div class="chart-wrap"><canvas id="dealerChart"></canvas></div>
     </div>
   </div>
   <div class="chart-card">
     <div class="chart-take">
       <div class="take-eyebrow">WHAT THIS MEANS</div>
-      <p id="take-seg"></p>
+      <p id="take-mu"></p>
     </div>
-    <div class="source-caption" id="src-seg"></div>
-  </div>
-
-  <!-- 02 TREND -->
-  <div class="section-header" id="trend">
-    <div class="section-num">SECTION 02</div>
-    <div class="section-title">Trend over time</div>
-    <div class="section-subtitle">Awarded federal dollars per year (by award action start date).</div>
-  </div>
-  <div class="chart-card">
-    <h3>Federal awarded value by year</h3>
-    <div class="axis-label">Y axis — awarded $ (USD) &nbsp;·&nbsp; X axis — year</div>
-    <div class="chart-wrap"><canvas id="yearChart"></canvas></div>
-    <div class="chart-take">
-      <div class="take-eyebrow">WHAT TO WATCH</div>
-      <p id="take-year"></p>
+    <div class="chart-take warn">
+      <div class="take-eyebrow">HONEST CAVEAT ON THIS DATA</div>
+      <p>These are <strong>transaction counts</strong>, deliberately not a dollar total: open-data
+      "amount" columns are inconsistent across jurisdictions (line-item vs. running-balance), so a
+      summed dollar figure would be unreliable. <strong>Raw counts are also concentrated</strong> — the
+      top 3 jurisdictions (led by Richmond, VA's highly itemized payment register) are ~<span id="mu-top3"></span>
+      of MSA transactions — which is exactly why we lead with <strong>jurisdiction breadth</strong> (how many
+      places MSA's channel wins) rather than the headline ratio. Dealers are <strong>multi-brand</strong>
+      (they also carry some competitor lines), so the MSA channel is an upper bound on pure-MSA volume.
+      The only dollars shown are a conservative MSA-direct floor (<span id="mu-floor"></span>) from a few
+      datasets with reliable line-item amounts.</p>
     </div>
-    <div class="source-caption" id="src-year"></div>
-  </div>
-  <div class="chart-card">
-    <h3>Segment mix by year — the SCBA cycle, visible in the data</h3>
-    <div class="chart-subtitle">Awarded $ stacked by MSA segment per year</div>
-    <div class="chart-wrap"><canvas id="segYearChart"></canvas></div>
-    <div class="chart-take">
-      <div class="take-eyebrow">WHY THIS IS THE KEY CHART</div>
-      <p id="take-segyear"></p>
-    </div>
-    <div class="source-caption" id="src-segyear"></div>
-  </div>
-  <div class="chart-card">
-    <h3>Who drove the surge — awarding agency by year</h3>
-    <div class="chart-subtitle">Awarded $ stacked by federal department per year</div>
-    <div class="chart-wrap"><canvas id="agencyYearChart"></canvas></div>
-    <div class="chart-take">
-      <div class="take-eyebrow">WHAT THIS MEANS</div>
-      <p id="take-agyear"></p>
-    </div>
-    <div class="source-caption" id="src-agyear"></div>
-  </div>
-
-  <!-- 03 AGENCIES -->
-  <div class="section-header" id="agencies">
-    <div class="section-num">SECTION 03</div>
-    <div class="section-title">Who is buying — awarding agencies</div>
-    <div class="section-subtitle">Federal customers, by department and sub-agency.</div>
-  </div>
-  <div class="chart-card">
-    <h3>Top awarding agencies by value</h3>
-    <div class="axis-label">X axis — awarded $ (USD)</div>
-    <div class="chart-wrap tall"><canvas id="agencyChart"></canvas></div>
-    <div class="chart-take">
-      <div class="take-eyebrow">WHAT THIS MEANS</div>
-      <p id="take-agency"></p>
-    </div>
+    <div class="source-caption" id="src-mu"></div>
   </div>
   <div class="table-card">
-    <table id="subAgencyTable">
-      <thead><tr><th>Sub-agency / buying office</th><th class="num">Awarded $</th><th class="num">Awards</th></tr></thead>
+    <table id="muJurisTable">
+      <thead><tr><th>Jurisdiction</th><th>Level</th><th class="num">MSA-channel txns</th><th class="num">Competitor txns</th></tr></thead>
       <tbody></tbody>
     </table>
   </div>
-  <div class="source-caption" id="src-agency"></div>
 
-  <!-- 04 COMPETITION -->
-  <div class="section-header" id="competition">
+  <!-- 02 CO-OP -->
+  <div class="section-header" id="coop">
+    <div class="section-num">SECTION 02</div>
+    <div class="section-title">Cooperative contracts — the piggyback channel</div>
+    <div class="section-subtitle">National co-ops let any member agency buy MSA gear without a separate
+      competitive bid. This is real demand that never shows up as a tender.</div>
+  </div>
+  <div class="table-card">
+    <table id="coopTable">
+      <thead><tr><th>Cooperative</th><th>MSA relationship</th><th>Contract</th><th>Fire products covered</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="chart-card">
+    <div class="chart-take">
+      <div class="take-eyebrow">WHY THIS MATTERS TO THE THESIS</div>
+      <p>MSA holds <strong>direct</strong> cooperative contracts on <strong>Sourcewell, HGACBuy and GSA</strong>,
+      plus indirect reach on OMNIA &amp; NASPO ValuePoint through distributor Safeware. A large share of
+      municipal SCBA/turnout is bought this way — <strong>bypassing competitive bidding entirely</strong>.
+      That is exactly why competitive-bid data understates true MSA demand, and why a competitor rarely
+      gets a look-in once a department is buying off MSA's co-op contract.</p>
+    </div>
+    <div class="source-caption">Source: <code>us.msasafety.com/co-op-contracts</code>, Sourcewell, HGACBuy, NASPO ValuePoint, Safeware · 2026-06-30</div>
+  </div>
+
+  <!-- 03 PLATFORMS -->
+  <div class="section-header" id="platforms">
+    <div class="section-num">SECTION 03</div>
+    <div class="section-title">Where municipal fire tenders live</div>
+    <div class="section-subtitle">The e-procurement systems that run city/county bidding — and how
+      accessible their award data actually is.</div>
+  </div>
+  <div class="table-card">
+    <table id="platformTable">
+      <thead><tr><th>Platform</th><th>Network / owner</th><th>Award results public?</th><th>Automated access</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="chart-card">
+    <div class="chart-take warn">
+      <div class="take-eyebrow">THE ACCESS REALITY (FOR "WHO BID / WHO LOST")</div>
+      <p>The market has consolidated into ~4 networks (SOVRA, Euna, OpenGov, PlanetBids). Open
+      solicitations are largely public, but <strong>structured award/bid-tabulation data is walled off</strong>
+      for free, automated collection: PlanetBids sits behind an AWS WAF CAPTCHA, Bonfire's robots.txt
+      disallows all crawling, and BidNet explicitly bans Anthropic/Claude agents. The clean
+      "who-bid-and-lost" record realistically requires targeted <strong>public-records (FOIA) requests</strong>
+      to specific fire departments, or paid aggregators (GovSpend / GovWin). This is itself a finding for
+      scoping the next phase.</p>
+    </div>
+    <div class="source-caption">Source: platform robots.txt / ToS + live access probes · see <code>docs/municipal-landscape.md</code> · 2026-06-30</div>
+  </div>
+
+  <!-- 04 FEDERAL FIRE -->
+  <div class="section-header" id="federal">
     <div class="section-num">SECTION 04</div>
-    <div class="section-title">Competition — won in the open vs. sole-sourced</div>
-    <div class="section-subtitle">Federal records show how each contract was competed and how many bids came in.
-      It is the closest public window on "MSA competed against rivals" — including where they had to win on the merits.</div>
+    <div class="section-title">Federal fire slice — supporting evidence</div>
+    <div class="section-subtitle">A small but cleanly-measured slice (USAspending). Fire only — Detection
+      removed. This is where the SCBA replacement cycle shows up in hard data.</div>
+  </div>
+  <div class="hero-row" id="ff-hero"></div>
+  <div class="chart-card">
+    <h3>Federal fire/SCBA awarded value by year — the replacement cycle</h3>
+    <div class="axis-label">Y axis — awarded $ (USD) &nbsp;·&nbsp; X axis — year</div>
+    <div class="chart-wrap"><canvas id="ffYearChart"></canvas></div>
+    <div class="chart-take">
+      <div class="take-eyebrow">WHAT TO WATCH</div>
+      <p id="take-ffyear"></p>
+    </div>
+    <div class="source-caption" id="src-ffyear"></div>
   </div>
   <div class="split-row">
     <div class="split-stat win">
       <div class="ss-label">Won in open competition</div>
-      <div class="ss-val" id="comp-won"></div>
-      <div class="ss-sub" id="comp-won-sub"></div>
+      <div class="ss-val" id="ff-won"></div>
+      <div class="ss-sub" id="ff-won-sub"></div>
     </div>
     <div class="split-stat sole">
       <div class="ss-label">Sole-source / not competed</div>
-      <div class="ss-val" id="comp-sole"></div>
-      <div class="ss-sub" id="comp-sole-sub"></div>
+      <div class="ss-val" id="ff-sole"></div>
+      <div class="ss-sub" id="ff-sole-sub"></div>
     </div>
-  </div>
-  <div class="chart-card">
-    <h3>Number of bids received on MSA's federal awards</h3>
-    <div class="chart-subtitle">How crowded the field was on contracts MSA won (where the bid count is disclosed)</div>
-    <div class="chart-wrap"><canvas id="offersChart"></canvas></div>
-    <div class="chart-take">
-      <div class="take-eyebrow">WHAT THIS MEANS — AND THE LIMIT ON "LOST" BIDS</div>
-      <p id="take-comp"></p>
-      <p><strong>On bids MSA lost:</strong> U.S. federal databases publish <em>winners</em>, not the full
-      bidder list, so a clean "MSA bid and lost" federal tally does not exist publicly. The honest proxies
-      are here: the <strong>open-competition</strong> wins above (MSA beating rivals head-to-head) and the
-      bid-count chart (how many competitors showed up). Where MSA <em>loses</em> is most visible in
-      state/local bid tabulations — a future add. See also the GAO bid-protest note in Methodology.</p>
-    </div>
-    <div class="source-caption" id="src-comp"></div>
-  </div>
-  <div class="chart-card">
-    <div class="chart-take">
-      <div class="take-eyebrow">ON RECORD — GAO BID PROTESTS (HEAD-TO-HEAD WITH RIVALS)</div>
-      <p><strong>MSA won &amp; defended it (2021):</strong> Scott Technologies (3M's Scott Fire &amp; Safety,
-      MSA's #1 SCBA rival) protested the U.S. Air Force's award to <strong>MSA Safety Sales, LLC</strong>
-      for commercial SCBA airpaks, masks and respirator kits (RFP FA8534-20-R-0006). <strong>GAO denied the
-      protest</strong> — MSA's win stood against its biggest competitor.
-      <a href="https://www.gao.gov/products/b-421025.2,b-421025.3" target="_blank" rel="noopener">[GAO B-421025.2]</a></p>
-      <p><strong>MSA lost &amp; challenged it (1992):</strong> Mine Safety Appliances protested a U.S. Navy
-      award to National Draeger for a shipboard Fire Fighters Breathing Apparatus. <strong>GAO denied MSA's
-      protest</strong> — a documented case of MSA competing and not winning.
-      <a href="https://www.gao.gov/products/b-242379.5" target="_blank" rel="noopener">[GAO B-242379.5]</a></p>
-    </div>
-    <div class="source-caption">
-      <strong>Source:</strong> U.S. Government Accountability Office bid-protest decisions
-      (<code>gao.gov/legal/bid-protests</code>). Illustrative, hand-verified cases — not an exhaustive list.
-    </div>
-  </div>
-
-  <!-- 05 STATE & LOCAL -->
-  <div class="section-header" id="statelocal">
-    <div class="section-num">SECTION 05</div>
-    <div class="section-title">State &amp; local footprint</div>
-    <div class="section-subtitle">Payments booked directly to MSA in state, county &amp; city open-checkbook
-      data (automated sweep of government Socrata portals). This is demand the federal data misses entirely.</div>
-  </div>
-  <div class="hero-row" id="sl-hero"></div>
-  <div class="chart-card">
-    <h3>Top state &amp; local jurisdictions paying MSA</h3>
-    <div class="axis-label">X axis — payments booked to MSA (USD)</div>
-    <div class="chart-wrap tall"><canvas id="slChart"></canvas></div>
-    <div class="chart-take">
-      <div class="take-eyebrow">WHAT THIS MEANS</div>
-      <p id="take-sl"></p>
-    </div>
-  </div>
-  <div class="chart-card">
-    <h3>State &amp; local payments to MSA by year</h3>
-    <div class="axis-label">Y axis — payments booked to MSA (USD) &nbsp;·&nbsp; X axis — year</div>
-    <div class="chart-wrap"><canvas id="slYearChart"></canvas></div>
-    <div class="chart-take">
-      <div class="take-eyebrow">A THESIS TELL — HIDING IN THE OLD DATA</div>
-      <p id="take-slyear"></p>
-    </div>
-    <div class="source-caption" id="src-slyear"></div>
   </div>
   <div class="table-card">
-    <table id="slTable">
-      <thead><tr><th>Jurisdiction</th><th>Level</th><th class="num">Payments to MSA</th><th class="num">Records</th></tr></thead>
+    <table id="ffContractsTable">
+      <thead><tr><th>Award ID</th><th>Awarding agency</th><th class="num">Awarded $</th><th>Start</th><th>What it is</th></tr></thead>
       <tbody></tbody>
     </table>
   </div>
-  <div class="source-caption" id="src-sl"></div>
+  <div class="source-caption" id="src-ff"></div>
 
-  <!-- 06 AFG DEMAND -->
+  <!-- 05 AFG -->
   <div class="section-header" id="afg">
-    <div class="section-num">SECTION 06</div>
+    <div class="section-num">SECTION 05</div>
     <div class="section-title">FEMA AFG — the demand engine behind SCBA</div>
-    <div class="section-subtitle">Assistance to Firefighters Grants: federal money paid straight to fire
-      departments to buy equipment — prominently SCBA. A leading indicator of MSA fire-services demand.</div>
+    <div class="section-subtitle">Assistance to Firefighters Grants: federal money paid to fire
+      departments to buy equipment — prominently SCBA. The funded demand pool MSA captures locally.</div>
   </div>
   <div class="lede">
     <div class="lede-eyebrow">WHY THIS MATTERS</div>
-    <p>Fire departments rarely pay for new breathing apparatus out of pocket — they fund it with
-    <strong>AFG grants</strong>. Regulations bar running SCBA more than two NFPA generations old, and
-    <strong>grant money can't be spent on it either</strong>, so each new standard cycle pushes departments
-    to re-buy. MSA doesn't receive these grants (departments do), but this is the <strong>federal fuel</strong>
-    that gets spent on MSA G1 SCBA. Tracking national AFG volume is a clean, public read on the demand pool.</p>
+    <p>Departments fund SCBA largely with <strong>AFG grants</strong>. Regulations bar running gear more
+    than two NFPA generations old — and grant money can't be spent on it either — so each standard cycle
+    forces a re-buy. MSA doesn't receive these grants (departments do); this is the <strong>federal fuel</strong>
+    that gets spent, locally, on MSA G1 SCBA.</p>
   </div>
   <div class="chart-card">
-    <h3>National AFG grant volume by federal fiscal year</h3>
+    <h3>National AFG grant volume by fiscal year</h3>
     <div class="axis-label">Y axis — AFG obligations (USD) &nbsp;·&nbsp; X axis — fiscal year</div>
     <div class="chart-wrap"><canvas id="afgChart"></canvas></div>
     <div class="chart-take">
@@ -369,82 +340,43 @@
     <div class="source-caption" id="src-afg"></div>
   </div>
 
-  <!-- 07 GEOGRAPHY -->
-  <div class="section-header" id="geography">
-    <div class="section-num">SECTION 07</div>
-    <div class="section-title">Geography — place of performance</div>
-    <div class="section-subtitle">Where the work / delivery is recorded. (MSA's manufacturing hub is Cranberry Township, PA.)</div>
-  </div>
-  <div class="chart-card">
-    <h3>Top states by awarded value</h3>
-    <div class="axis-label">X axis — awarded $ (USD)</div>
-    <div class="chart-wrap tall"><canvas id="stateChart"></canvas></div>
-    <div class="source-caption" id="src-state"></div>
-  </div>
-
-  <!-- 05 TOP CONTRACTS -->
-  <div class="section-header" id="contracts">
-    <div class="section-num">SECTION 08</div>
-    <div class="section-title">Largest contracts</div>
-    <div class="section-subtitle">Top awards by value. Click an award ID to open the official USAspending.gov record.</div>
-  </div>
-  <div class="table-card">
-    <table id="contractsTable">
-      <thead><tr>
-        <th>Award ID</th><th>Segment</th><th>Awarding agency</th>
-        <th class="num">Awarded $</th><th>Start</th><th>What it is</th>
-      </tr></thead>
-      <tbody></tbody>
-    </table>
-  </div>
-  <div class="source-caption" id="src-contracts"></div>
-
   <!-- 06 METHOD -->
   <div class="section-header" id="method">
-    <div class="section-num">SECTION 09</div>
-    <div class="section-title">Methodology &amp; sources</div>
-    <div class="section-subtitle">Full traceability — every number here regenerates from public APIs.</div>
+    <div class="section-num">SECTION 06</div>
+    <div class="section-title">Methodology &amp; caveats</div>
+    <div class="section-subtitle">Full traceability — figures regenerate from public sources.</div>
   </div>
   <div class="chart-card">
     <div class="chart-take">
       <div class="take-eyebrow">HOW THIS WAS BUILT</div>
-      <p><strong>Source.</strong> U.S. Treasury <a href="https://www.usaspending.gov" target="_blank">USAspending.gov</a>
-      API (the authoritative federal procurement record, fed by FPDS). We query all prime contract
-      awards (award types A/B/C/D) for MSA's recipient entities with contract activity in the window.</p>
-      <p><strong>Entities.</strong> <span id="entities"></span></p>
-      <p><strong>Segment mapping.</strong> Each award is classified into an MSA segment —
-      <em>Fire Services (SCBA)</em>, <em>Detection</em>, or <em>Industrial PPE</em> — using a priority of
-      product description keywords → PSC product code → NAICS industry code. Awards that don't cleanly
-      map (e.g. generic support services, maintenance kits) are left as <em>Other / Unclassified</em>
-      rather than force-fit.</p>
-      <p><strong>State &amp; local.</strong> There is no single API for the 50 states and thousands of
-      cities, so we run an automated sweep of government open-data "checkbook" portals on the Socrata
-      platform: discover vendor-payment datasets across all domains, auto-detect the vendor/amount
-      columns, and filter for payments booked to MSA's legal entities. Look-alike vendors (e.g.
-      "Missouri Mine Safety &amp; Health") and non-payment records are filtered out.</p>
-      <p><strong>FEMA AFG.</strong> Pulled from USAspending assistance awards under Assistance Listing
-      97.044. AFG is paid to fire departments, not MSA — we use national volume as a demand proxy.</p>
-      <p><strong>Bid protests.</strong> GAO decisions are read by hand (no bulk API); the cases shown are
-      verified and illustrative, not exhaustive.</p>
-      <p><strong>Scope &amp; caveats.</strong> Federal numbers are <em>prime</em> contracts only; sub-awards
-      through distributors are excluded. State/local capture is limited to Socrata-published jurisdictions
-      and payments booked <em>directly</em> to MSA (reseller sales are invisible). So true government demand
-      for MSA is <em>larger</em> than shown everywhere on this page. "Year" is the award action's
-      period-of-performance start date; a few federal awards started before the window but stayed active in it.</p>
-      <p><strong>Reproducibility.</strong> Re-run <code>scripts/collect_federal.py</code>,
-      <code>scripts/collect_socrata.py</code>, <code>scripts/collect_afg.py</code>, then
-      <code>scripts/build_analysis.py</code> to refresh every figure on this page.</p>
+      <p><strong>Scope.</strong> MSA fire segment only (SCBA, turnout, helmets). Detection &amp; other
+      non-fire lines excluded per mandate.</p>
+      <p><strong>Municipal channel.</strong> Automated sweep of government open-data (Socrata) award &amp;
+      PO datasets for fire-product terms (SCBA, turnout, bunker gear) and vendor names — MSA, its
+      authorized dealers (Witmer, MES, Casco, MacQueen, Vogelpohl, Ten-8, Firematic, Sentinel, Sunbelt),
+      and competitors (Scott/Air-Pak, Dräger, LION, Morning Pride, Fire-Dex). Look-alikes and non-fire MSA
+      lines (body armor, gas detection) are filtered out. We report transaction <em>counts</em> (robust);
+      dollar totals are intentionally avoided because open-data amount columns are inconsistent.</p>
+      <p><strong>Cooperative contracts &amp; platforms.</strong> From MSA's published co-op page and each
+      platform's robots.txt / ToS plus live access probes. See <code>docs/municipal-landscape.md</code>.</p>
+      <p><strong>Federal fire.</strong> USAspending.gov prime contract awards, filtered to the fire segment
+      via product (PSC) / industry (NAICS) / description. Competition fields from FPDS.</p>
+      <p><strong>FEMA AFG.</strong> USAspending assistance awards, Assistance Listing 97.044 (demand proxy).</p>
+      <p><strong>Known limits.</strong> Dealers are multi-brand; cooperative &amp; distributor sales are
+      under-attributed; bid-tabulation "who-lost" data is not freely harvestable (FOIA/paid only). True MSA
+      demand is <em>larger</em> than anything shown here. Reproduce via
+      <code>collect_municipal.py</code>, <code>collect_federal.py</code>, <code>collect_afg.py</code>,
+      <code>build_site.py</code>.</p>
     </div>
     <div class="source-caption" id="src-method"></div>
   </div>
 
   <footer>
-    <div>MSA Safety U.S. federal procurement tracker · data refreshed <span id="foot-date"></span> ·
-    source: <code>USAspending.gov API</code> · code &amp; data:
-    <a href="https://github.com/slogatskiy/msa-procurement-analysis" target="_blank">github.com/slogatskiy/msa-procurement-analysis</a></div>
-    <div class="disclaimer">For research and informational purposes only. Not investment advice.
-    Figures reflect public federal contract records and may be revised by the source. Dollar amounts
-    are awarded/obligated values, not necessarily realized MSA revenue.</div>
+    <div>MSA Safety fire-segment public-procurement tracker · refreshed <span id="foot-date"></span> ·
+    code &amp; data: <a href="https://github.com/slogatskiy/msa-procurement-analysis" target="_blank">github.com/slogatskiy/msa-procurement-analysis</a></div>
+    <div class="disclaimer">For research and informational purposes only. Not investment advice. Figures
+    reflect public records and may be revised by the source. Transaction counts are activity indicators,
+    not market share or revenue.</div>
   </footer>
 
 </div>

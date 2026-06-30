@@ -29,13 +29,14 @@ AFG demand pool · GAO bid-protest record vs 3M Scott & Draeger.
 - **FEMA Assistance to Firefighters Grants (AFG)**, Assistance Listing 97.044 — SCBA demand proxy.
 - **GAO bid-protest decisions** — hand-verified head-to-head cases vs competitors.
 
-## Collectors
+## Collectors (v3 — fire segment focus)
 ```bash
-python3 scripts/collect_federal.py    # federal prime awards + competition fields
-python3 scripts/collect_socrata.py    # state/local checkbook sweep (Socrata)
-python3 scripts/collect_afg.py        # FEMA AFG grant volume by year
-python3 scripts/build_analysis.py     # -> site_data.json + site/data.js + findings.md
+python3 scripts/collect_federal.py    # federal prime awards + competition (filtered to fire in build)
+python3 scripts/collect_municipal.py  # municipal fire sweep (Socrata award/PO datasets, MSA+dealers vs competitors)
+python3 scripts/collect_afg.py        # FEMA AFG grant volume by year (fire demand proxy)
+python3 scripts/build_site.py         # -> fire-only site_data.json + site/data.js
 ```
+See `docs/municipal-landscape.md` for the bidding-platform map, MSA dealer/co-op channel, and data-access reality.
 
 ## Refresh / backup
 All data is reproducible from the API — no manual entry. To refresh:

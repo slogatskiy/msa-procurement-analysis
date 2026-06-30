@@ -76,8 +76,16 @@ pilot harvest; count participation as **MSA + known dealers**; geography **as br
       (G1, Globe, Cairns) + competitor terms to exclude.
 - [ ] v3-3 Minability / access methods per platform (public results? API? login/paid? ToS).
 - [ ] v3-4 Pilot-harvest real municipal SCBA/turnout bids where MSA + dealers appear.
-- [ ] v3-5 Rebuild site: fire-only (Detection removed), federal demoted to a minor slice,
-      new municipal landscape + harvested-bids sections; redeploy.
+- [x] v3-5 Rebuilt site fire-only (Detection removed); federal demoted to supporting slice;
+      new sections: municipal channel dominance, co-op contracts, platform landscape. Redeployed.
+
+### v3 — SHIPPED (2026-06-30)
+- Municipal sweep: MSA channel leads in **34 of 42** jurisdictions, present in **41 of 44**
+  (raw count 17,022 vs 2,077 competitor — concentrated in top-3, so we lead with breadth).
+- Co-op channel: MSA direct on Sourcewell/HGAC/GSA + indirect via Safeware (OMNIA/NASPO).
+- Platform landscape + access reality (PlanetBids WAF, Bonfire robots-block, BidNet bans our bots).
+- Tier-2 finding: free automated bid-tab scraping is walled off; "who-lost" needs FOIA/paid.
+- Federal kept fire-only ($104M, SCBA cycle still visible).
 
 Reframing note: the federal dataset ($143M) stays but becomes a small supporting section —
 the municipal story is the main event.
