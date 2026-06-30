@@ -89,19 +89,27 @@
       data: {
         labels: yr.map((y) => y.year),
         datasets: [
-          { label: "MSA channel", data: yr.map((y) => y.msa), backgroundColor: COL.accent, borderWidth: 0 },
-          { label: "Competitors", data: yr.map((y) => y.comp), backgroundColor: COL.neg, borderWidth: 0 },
+          { label: "MSA channel (txns)", data: yr.map((y) => y.msa), backgroundColor: COL.accent, borderWidth: 0, yAxisID: "y", stack: "c", order: 2 },
+          { label: "Competitors (txns)", data: yr.map((y) => y.comp), backgroundColor: COL.neg, borderWidth: 0, yAxisID: "y", stack: "c", order: 2 },
+          { label: "MSA share of activity (%)", data: yr.map((y) => y.msa_share), type: "line", yAxisID: "y1",
+            borderColor: COL.blue, backgroundColor: COL.blue, borderWidth: 2.5, tension: 0.3,
+            pointRadius: 3, pointBackgroundColor: COL.blue, order: 0 },
         ],
       },
       options: {
         responsive: true, maintainAspectRatio: false,
         plugins: {
           legend: { position: "bottom", labels: { boxWidth: 12, padding: 10, font: { size: 10 } } },
-          tooltip: { callbacks: { label: (c) => c.dataset.label + ": " + num(c.parsed.y) + (c.datasetIndex === 0 ? " (" + yr[c.dataIndex].msa_share + "% of yr)" : "") } },
+          tooltip: { callbacks: { label: (c) => c.datasetIndex === 2
+            ? "MSA share: " + c.parsed.y + "%"
+            : c.dataset.label + ": " + num(c.parsed.y) } },
         },
         scales: {
           x: { stacked: true, grid: { display: false } },
-          y: { stacked: true, grid: { color: COL.grid }, ticks: { precision: 0 } },
+          y: { stacked: true, position: "left", grid: { color: COL.grid }, ticks: { precision: 0 },
+               title: { display: true, text: "transactions" } },
+          y1: { position: "right", min: 0, max: 100, grid: { display: false },
+                ticks: { callback: (v) => v + "%" }, title: { display: true, text: "MSA share" } },
         },
       },
     });
