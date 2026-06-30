@@ -1,0 +1,502 @@
+{
+  "meta": {
+    "total_rows": 18586,
+    "n_jurisdictions": 44,
+    "source": "Municipal/state open-data (Socrata) contract-award & PO datasets",
+    "scope": "Fire segment only (SCBA, turnout, helmets). Vendor + product attribution."
+  },
+  "by_class": [
+    {
+      "class": "Via MSA fire dealer",
+      "amount": 6358769128.8,
+      "count": 15403
+    },
+    {
+      "class": "Fire \u2014 unattributed",
+      "amount": 404529373.5,
+      "count": 943
+    },
+    {
+      "class": "Competitor",
+      "amount": 315269306.37,
+      "count": 1854
+    },
+    {
+      "class": "MSA direct",
+      "amount": 5719121.85,
+      "count": 356
+    },
+    {
+      "class": "MSA product spec'd",
+      "amount": 256853.48,
+      "count": 30
+    }
+  ],
+  "by_jurisdiction": [
+    {
+      "jurisdiction": "illinois-edp.data.socrata.com",
+      "level": "local",
+      "amount": 4570205989.0,
+      "count": 1007,
+      "classes": {
+        "Via MSA fire dealer": 935,
+        "Fire \u2014 unattributed": 62,
+        "Competitor": 10
+      }
+    },
+    {
+      "jurisdiction": "newcastle.data.socrata.com",
+      "level": "local",
+      "amount": 1250668835.21,
+      "count": 528,
+      "classes": {
+        "Via MSA fire dealer": 528
+      }
+    },
+    {
+      "jurisdiction": "www.transparentrichmond.org",
+      "level": "local",
+      "amount": 458588595.0,
+      "count": 45,
+      "classes": {
+        "Via MSA fire dealer": 39,
+        "Competitor": 6
+      }
+    },
+    {
+      "jurisdiction": "New York City, NY",
+      "level": "city",
+      "amount": 241248485.74,
+      "count": 74,
+      "classes": {
+        "Via MSA fire dealer": 46,
+        "Fire \u2014 unattributed": 12,
+        "MSA direct": 6,
+        "Competitor": 10
+      }
+    },
+    {
+      "jurisdiction": "Chicago, IL",
+      "level": "city",
+      "amount": 185216942.42,
+      "count": 134,
+      "classes": {
+        "Fire \u2014 unattributed": 24,
+        "Competitor": 85,
+        "MSA direct": 2,
+        "Via MSA fire dealer": 23
+      }
+    },
+    {
+      "jurisdiction": "stateofalaska.data.socrata.com",
+      "level": "local",
+      "amount": 128073714.0,
+      "count": 6,
+      "classes": {
+        "Via MSA fire dealer": 6
+      }
+    },
+    {
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "amount": 60447631.0,
+      "count": 143,
+      "classes": {
+        "MSA direct": 9,
+        "Competitor": 68,
+        "Via MSA fire dealer": 66
+      }
+    },
+    {
+      "jurisdiction": "data.richmondgov.com",
+      "level": "local",
+      "amount": 51815094.55,
+      "count": 7581,
+      "classes": {
+        "Competitor": 25,
+        "Via MSA fire dealer": 7545,
+        "Fire \u2014 unattributed": 9,
+        "MSA product spec'd": 2
+      }
+    },
+    {
+      "jurisdiction": "Cincinnati, OH",
+      "level": "city",
+      "amount": 31605258.95,
+      "count": 1130,
+      "classes": {
+        "Via MSA fire dealer": 952,
+        "Competitor": 178
+      }
+    },
+    {
+      "jurisdiction": "New Jersey",
+      "level": "state",
+      "amount": 20187284.74,
+      "count": 392,
+      "classes": {
+        "Competitor": 185,
+        "Via MSA fire dealer": 181,
+        "MSA direct": 26
+      }
+    },
+    {
+      "jurisdiction": "New York State",
+      "level": "state",
+      "amount": 17270415.81,
+      "count": 117,
+      "classes": {
+        "Competitor": 33,
+        "Fire \u2014 unattributed": 77,
+        "Via MSA fire dealer": 7
+      }
+    },
+    {
+      "jurisdiction": "Kansas City, MO",
+      "level": "city",
+      "amount": 17096249.8,
+      "count": 283,
+      "classes": {
+        "Via MSA fire dealer": 21,
+        "MSA direct": 176,
+        "Competitor": 86
+      }
+    },
+    {
+      "jurisdiction": "www.dallasopendata.com",
+      "level": "local",
+      "amount": 8915314.68,
+      "count": 1296,
+      "classes": {
+        "Via MSA fire dealer": 487,
+        "Competitor": 809
+      }
+    },
+    {
+      "jurisdiction": "data.princegeorgescountymd.gov",
+      "level": "local",
+      "amount": 7913478.7,
+      "count": 1535,
+      "classes": {
+        "Via MSA fire dealer": 1527,
+        "Competitor": 8
+      }
+    },
+    {
+      "jurisdiction": "datacatalog.cookcountyil.gov",
+      "level": "local",
+      "amount": 4482027.29,
+      "count": 29,
+      "classes": {
+        "Fire \u2014 unattributed": 2,
+        "Competitor": 20,
+        "Via MSA fire dealer": 1,
+        "MSA direct": 6
+      }
+    },
+    {
+      "jurisdiction": "sharefulton.fultoncountyga.gov",
+      "level": "local",
+      "amount": 4351152.75,
+      "count": 238,
+      "classes": {
+        "MSA direct": 1,
+        "Via MSA fire dealer": 128,
+        "Fire \u2014 unattributed": 19,
+        "Competitor": 90
+      }
+    },
+    {
+      "jurisdiction": "Baton Rouge, LA",
+      "level": "city",
+      "amount": 3993864.93,
+      "count": 521,
+      "classes": {
+        "Fire \u2014 unattributed": 269,
+        "Via MSA fire dealer": 239,
+        "Competitor": 7,
+        "MSA direct": 4,
+        "MSA product spec'd": 2
+      }
+    },
+    {
+      "jurisdiction": "data.montgomerycountymd.gov",
+      "level": "local",
+      "amount": 3589910.94,
+      "count": 73,
+      "classes": {
+        "Via MSA fire dealer": 37,
+        "Competitor": 36
+      }
+    },
+    {
+      "jurisdiction": "atlanta.data.socrata.com",
+      "level": "local",
+      "amount": 3570967.87,
+      "count": 1193,
+      "classes": {
+        "Fire \u2014 unattributed": 37,
+        "Via MSA fire dealer": 1127,
+        "MSA direct": 13,
+        "Competitor": 15,
+        "MSA product spec'd": 1
+      }
+    },
+    {
+      "jurisdiction": "Maryland",
+      "level": "state",
+      "amount": 2590410.93,
+      "count": 42,
+      "classes": {
+        "Competitor": 5,
+        "Via MSA fire dealer": 37
+      }
+    },
+    {
+      "jurisdiction": "data.mo.gov",
+      "level": "local",
+      "amount": 2303686.89,
+      "count": 190,
+      "classes": {
+        "MSA direct": 65,
+        "Via MSA fire dealer": 80,
+        "Competitor": 45
+      }
+    },
+    {
+      "jurisdiction": "data.providenceri.gov",
+      "level": "local",
+      "amount": 2275704.13,
+      "count": 491,
+      "classes": {
+        "Via MSA fire dealer": 491
+      }
+    },
+    {
+      "jurisdiction": "opendata.howardcountymd.gov",
+      "level": "local",
+      "amount": 1594652.16,
+      "count": 22,
+      "classes": {
+        "Via MSA fire dealer": 21,
+        "Competitor": 1
+      }
+    },
+    {
+      "jurisdiction": "Washington",
+      "level": "state",
+      "amount": 1395874.39,
+      "count": 269,
+      "classes": {
+        "Fire \u2014 unattributed": 251,
+        "MSA product spec'd": 2,
+        "Competitor": 16
+      }
+    },
+    {
+      "jurisdiction": "opendata.cityofmesquite.com",
+      "level": "local",
+      "amount": 1327484.03,
+      "count": 127,
+      "classes": {
+        "Via MSA fire dealer": 93,
+        "Competitor": 30,
+        "MSA direct": 4
+      }
+    },
+    {
+      "jurisdiction": "data.oregon.gov",
+      "level": "local",
+      "amount": 1264681.89,
+      "count": 38,
+      "classes": {
+        "Via MSA fire dealer": 4,
+        "Fire \u2014 unattributed": 25,
+        "Competitor": 3,
+        "MSA product spec'd": 6
+      }
+    },
+    {
+      "jurisdiction": "data.colorado.gov",
+      "level": "local",
+      "amount": 1137726.77,
+      "count": 199,
+      "classes": {
+        "Via MSA fire dealer": 191,
+        "MSA direct": 3,
+        "MSA product spec'd": 1,
+        "Fire \u2014 unattributed": 4
+      }
+    },
+    {
+      "jurisdiction": "data.delaware.gov",
+      "level": "local",
+      "amount": 310339.03,
+      "count": 10,
+      "classes": {
+        "Via MSA fire dealer": 10
+      }
+    },
+    {
+      "jurisdiction": "data.framinghamma.gov",
+      "level": "local",
+      "amount": 173802.35,
+      "count": 134,
+      "classes": {
+        "Via MSA fire dealer": 89,
+        "Competitor": 25,
+        "MSA direct": 20
+      }
+    },
+    {
+      "jurisdiction": "data.vermont.gov",
+      "level": "local",
+      "amount": 160640.31,
+      "count": 81,
+      "classes": {
+        "Via MSA fire dealer": 75,
+        "MSA direct": 1,
+        "Competitor": 2,
+        "Fire \u2014 unattributed": 3
+      }
+    },
+    {
+      "jurisdiction": "corstat.coronaca.gov",
+      "level": "local",
+      "amount": 145279.57,
+      "count": 80,
+      "classes": {
+        "MSA product spec'd": 7,
+        "Fire \u2014 unattributed": 55,
+        "Competitor": 16,
+        "Via MSA fire dealer": 2
+      }
+    },
+    {
+      "jurisdiction": "opendata.utah.gov",
+      "level": "local",
+      "amount": 127905.72,
+      "count": 75,
+      "classes": {
+        "MSA product spec'd": 2,
+        "Fire \u2014 unattributed": 73
+      }
+    },
+    {
+      "jurisdiction": "data.fultoncountyga.gov",
+      "level": "local",
+      "amount": 109519.8,
+      "count": 31,
+      "classes": {
+        "Via MSA fire dealer": 31
+      }
+    },
+    {
+      "jurisdiction": "performance.ci.janesville.wi.us",
+      "level": "local",
+      "amount": 83669.12,
+      "count": 112,
+      "classes": {
+        "Competitor": 11,
+        "MSA direct": 8,
+        "Via MSA fire dealer": 93
+      }
+    },
+    {
+      "jurisdiction": "johnstonia.data.socrata.com",
+      "level": "local",
+      "amount": 71173.0,
+      "count": 48,
+      "classes": {
+        "Via MSA fire dealer": 40,
+        "Fire \u2014 unattributed": 8
+      }
+    },
+    {
+      "jurisdiction": "janesville.data.socrata.com",
+      "level": "local",
+      "amount": 53875.48,
+      "count": 77,
+      "classes": {
+        "Competitor": 10,
+        "MSA direct": 6,
+        "Via MSA fire dealer": 61
+      }
+    },
+    {
+      "jurisdiction": "Connecticut",
+      "level": "state",
+      "amount": 47272.4,
+      "count": 26,
+      "classes": {
+        "Via MSA fire dealer": 25,
+        "Fire \u2014 unattributed": 1
+      }
+    },
+    {
+      "jurisdiction": "data.coloradosprings.gov",
+      "level": "local",
+      "amount": 37115.0,
+      "count": 9,
+      "classes": {
+        "Via MSA fire dealer": 9
+      }
+    },
+    {
+      "jurisdiction": "albany.data.socrata.com",
+      "level": "local",
+      "amount": 36340.93,
+      "count": 156,
+      "classes": {
+        "MSA direct": 4,
+        "Via MSA fire dealer": 152
+      }
+    },
+    {
+      "jurisdiction": "citydata.mesaaz.gov",
+      "level": "local",
+      "amount": 33886.78,
+      "count": 22,
+      "classes": {
+        "Competitor": 18,
+        "Via MSA fire dealer": 4
+      }
+    },
+    {
+      "jurisdiction": "internal.open.piercecountywa.gov",
+      "level": "local",
+      "amount": 20000.0,
+      "count": 2,
+      "classes": {
+        "MSA direct": 2
+      }
+    },
+    {
+      "jurisdiction": "hicscdata.hawaii.gov",
+      "level": "local",
+      "amount": 782.44,
+      "count": 12,
+      "classes": {
+        "Fire \u2014 unattributed": 12
+      }
+    },
+    {
+      "jurisdiction": "data.macoupincountyil.gov",
+      "level": "local",
+      "amount": 519.5,
+      "count": 7,
+      "classes": {
+        "MSA product spec'd": 7
+      }
+    },
+    {
+      "jurisdiction": "washoe.data.socrata.com",
+      "level": "local",
+      "amount": 228.0,
+      "count": 1,
+      "classes": {
+        "Competitor": 1
+      }
+    }
+  ]
+}
