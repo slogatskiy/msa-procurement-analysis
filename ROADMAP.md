@@ -63,6 +63,25 @@ the reference design (research-report layout: anchor nav, KPI tiles, charts with
 
 ---
 
+## v3 — PIVOT: municipal fire procurement (in progress, 2026-06-30)
+PM feedback: nearly ALL of MSA's fire-segment revenue comes from MUNICIPALITIES (cities/
+counties), not the federal government. Focus the whole project on the **fire segment only**
+(drop Detection). Use an LLM to identify the websites that run municipal bidding systems, then
+mine them for MSA participation. Scope decisions (from Stepan): deliver BOTH a platform map and a
+pilot harvest; count participation as **MSA + known dealers**; geography **as broad as possible**.
+
+- [ ] v3-1 Map municipal e-procurement platforms (PlanetBids, BidNet, Bonfire, OpenGov,
+      DemandStar, Public Purchase, Ionwave...) + cooperative orgs (Sourcewell/OMNIA/NASPO).
+- [ ] v3-2 MSA fire dealer list (MES, Fire Safety USA, Witmer, Casco...) + product terms
+      (G1, Globe, Cairns) + competitor terms to exclude.
+- [ ] v3-3 Minability / access methods per platform (public results? API? login/paid? ToS).
+- [ ] v3-4 Pilot-harvest real municipal SCBA/turnout bids where MSA + dealers appear.
+- [ ] v3-5 Rebuild site: fire-only (Detection removed), federal demoted to a minor slice,
+      new municipal landscape + harvested-bids sections; redeploy.
+
+Reframing note: the federal dataset ($143M) stays but becomes a small supporting section —
+the municipal story is the main event.
+
 ## Conventions
 - Raw API pulls saved verbatim under `data/raw/` (never edited by hand).
 - Derived/normalized data under `data/processed/`.
